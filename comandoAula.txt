@@ -1,0 +1,1 @@
+Scaffold-DbContext "Data Source=LAPTOP-MG5LD6I4\SQLEXPRESS; Initial Catalog=Filmes; Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Domains -ContextDir Contexts -Context FilmesContext
