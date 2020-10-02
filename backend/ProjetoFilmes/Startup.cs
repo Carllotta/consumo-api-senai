@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 
 namespace ProjetoFilmes
 {
@@ -25,7 +26,12 @@ namespace ProjetoFilmes
                 .AddMvc()
 
                 // Define a versão compatível do SDK .NET Core
-                .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+                .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1)
+
+                .AddJsonOptions(options => {
+                     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                 });
 
             // cors configuration
             services
